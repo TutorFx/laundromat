@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel<TotemModelGeneric>({ required: true })
+// const model = defineModel<TotemModelGeneric>({ required: true })
 </script>
 <template>
   <div>

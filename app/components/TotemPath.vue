@@ -5,9 +5,9 @@ const TOTEM_PATH_KEYS = {
   CONTENT: 'default',
 } as const;
 export interface CardSlots {
-  [TOTEM_PATH_KEYS.NAV]: (props?: {}) => any
-  [TOTEM_PATH_KEYS.HERO]: (props?: {}) => any
-  [TOTEM_PATH_KEYS.CONTENT]: (props?: {}) => any
+  [TOTEM_PATH_KEYS.NAV]: (props?: object) => unknown
+  [TOTEM_PATH_KEYS.HERO]: (props?: object) => unknown
+  [TOTEM_PATH_KEYS.CONTENT]: (props?: object) => unknown
 }
 </script>
 <script setup lang="ts">

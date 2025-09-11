@@ -56,7 +56,7 @@ function triggerNext() {
             }))" size="lg" class="w-xs" />
         </UFormField>
       </UPageCard>
-      <UButton size="lg" @click="triggerNext">
+      <UButton size="lg" block @click="triggerNext">
         Próxima etapa
       </UButton>
     </div>

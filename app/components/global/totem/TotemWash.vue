@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const model = defineModel<TotemModelGeneric>({ required: true })
 const emits = defineEmits<{
-  change: [value: void]
+  change: [value: void | never]
 }>()
 const CURRENT_INDEX = TOTEM_INDEX.WASH
 const { data } = useFetch<GetMachineByService>(`/api/tenant/${'goiania-1'}/services/${SERVICE_TYPE.WASH}`)

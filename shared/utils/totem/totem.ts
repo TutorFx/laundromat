@@ -37,16 +37,20 @@ type MergeGraphs<TReversed, TForward> = {
 type CreateBidirectionalGraph<TGraph extends Readonly<Record<string, readonly string[]>>> =
   Prettify<MergeGraphs<ReverseGraph<TGraph>, TGraph>>;
 export type TotemPathsType = CreateBidirectionalGraph<typeof GRAPH>;
-const _reversedGraph = {} as ReverseGraph<typeof GRAPH>;
+
+const _reversedGraph = {} as Record<string, string[]>;
 for (const [sourceNode, destinationNodes] of Object.entries(GRAPH)) {
   for (const destinationNode of destinationNodes) {
-    if (!(_reversedGraph as any)[destinationNode]) {
-      (_reversedGraph as any)[destinationNode] = [];
+    if (!_reversedGraph[destinationNode]) {
+      _reversedGraph[destinationNode] = [];
     }
-    (_reversedGraph as any)[destinationNode]!.push(sourceNode);
+    _reversedGraph[destinationNode]!.push(sourceNode);
   }
 }
-export const TOTEM_PATHS = defu(_reversedGraph, GRAPH) as TotemPathsType;
+
+const REVERSED_GRAPH = _reversedGraph as ReverseGraph<typeof GRAPH>
+export const TOTEM_PATHS = defu(REVERSED_GRAPH, GRAPH) as TotemPathsType;
+
 export type GetMachineByService = { machines: Machine[] }
 export type WashMachineAdditional = z.infer<typeof washMachineAdditionalSchema>
 export type DryMachineAdditional = z.infer<typeof dryMachineAdditionalSchema>

@@ -49,7 +49,7 @@ watch(() => data.value[TOTEM_STATE_KEYS.WASH_MACHINE_SELECTED], (newMachine, old
     }
   }
 })
-const clBackButton = useEventListener(window, 'popstate', (e) => {
+const clBackButton = useEventListener(window, 'popstate', () => {
   console.log('teste')
 })
 onMounted(() => {
