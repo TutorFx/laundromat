@@ -48,7 +48,7 @@ for (const [sourceNode, destinationNodes] of Object.entries(GRAPH)) {
   }
 }
 
-const REVERSED_GRAPH = _reversedGraph as ReverseGraph<typeof GRAPH>
+export const REVERSED_GRAPH = _reversedGraph as ReverseGraph<typeof GRAPH>
 export const TOTEM_PATHS = defu(REVERSED_GRAPH, GRAPH) as TotemPathsType;
 
 export type GetMachineByService = { machines: Machine[] }

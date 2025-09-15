@@ -12,10 +12,9 @@ function triggerNext() {
 }
 </script>
 <template>
-  <TotemPath>
-    <template #nav />
+  <TotemPath class="gap-12">
     <template #hero>
-      <div class="grid gap-1 p-4">
+      <div class="grid gap-1">
         <LTitle>
           {{ $t(`${CURRENT_INDEX}.title`) }}
         </LTitle>
@@ -24,7 +23,7 @@ function triggerNext() {
         </div>
       </div>
     </template>
-    <div class="p-3 lg:py-12 grid">
+    <div class="grid">
       <UPageCard
         :title="$t(`${TOTEM_INDEX.WASH_MORE}.booleans.title`)"
         :description="$t(`${TOTEM_INDEX.WASH_MORE}.booleans.description`)" variant="naked" class="mb-4" />
@@ -56,9 +55,13 @@ function triggerNext() {
             }))" size="lg" class="w-xs" />
         </UFormField>
       </UPageCard>
-      <UButton size="lg" block @click="triggerNext">
-        Próxima etapa
-      </UButton>
     </div>
+    <template #footer>
+      <div class="p-3">
+        <UButton size="xl" block @click="triggerNext">
+          Próxima etapa
+        </UButton>
+      </div>
+    </template>
   </TotemPath>
 </template>

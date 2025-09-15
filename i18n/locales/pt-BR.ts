@@ -5,15 +5,18 @@ export default defineI18nLocale<LocaleContract>(() => {
   return {
     [TOTEM_INDEX.START]: {
       title: 'Bem-vindo! O que vamos fazer hoje?',
+      breadcrumb: 'Início'
     },
     [TOTEM_INDEX.WASH]: {
       title: 'Escolha uma lavadora',
       description: 'Lave suas roupas com eficiência e cuidado. As máquinas disponíveis estão prontas para uso.',
       button: 'Lavar Roupas',
+      breadcrumb: 'Lavar'
     },
     [TOTEM_INDEX.WASH_MORE]: {
       title: 'Personalize sua Lavagem',
       description: 'Adicione itens extras ou ajuste o ciclo para um resultado perfeito.',
+      breadcrumb: 'Preferências',
       booleans: {
         title: 'Opções Adicionais',
         description: 'Selecione os itens que deseja adicionar ao seu ciclo de lavagem.',
@@ -52,11 +55,13 @@ export default defineI18nLocale<LocaleContract>(() => {
     [TOTEM_INDEX.DRY]: {
       title: 'Escolha uma secadora',
       description: 'Seque suas roupas rapidamente. As máquinas disponíveis estão prontas para uso.',
+      breadcrumb: 'Secar',
       button: 'Secar Roupas',
     },
     [TOTEM_INDEX.DRY_MORE]: {
       title: 'Ajustes da Secagem',
       description: 'Configure a temperatura e o ciclo para proteger suas roupas e economizar energia.',
+      breadcrumb: 'Preferências',
       booleans: {
         title: 'Opções Extras',
         description: 'Ative recursos adicionais para um cuidado especial com suas roupas.',
@@ -95,6 +100,10 @@ export default defineI18nLocale<LocaleContract>(() => {
     [TOTEM_INDEX.PAYMENT]: {
       title: 'Pagamento',
       description: 'Selecione a forma de pagamento e finalize seu pedido.',
+      breadcrumb: 'Pagamento',
+    },
+    branch: {
+      title: 'Escolha de serviço'
     },
   } satisfies LocaleContract
 })

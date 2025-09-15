@@ -38,15 +38,18 @@ type DryMachineAdditionalType = Record<DryAdditionalKey, BaseMachineOption> & {
 export interface LocaleContract {
   [TOTEM_INDEX.START]: {
     title: string
+    breadcrumb: string
   }
   [TOTEM_INDEX.WASH]: {
     title: string
     description: string
+    breadcrumb: string
     button: string
   }
   [TOTEM_INDEX.WASH_MORE]: {
     title: string
     description: string
+    breadcrumb: string
     booleans: {
       title: string
       description: string
@@ -60,11 +63,13 @@ export interface LocaleContract {
   [TOTEM_INDEX.DRY]: {
     title: string
     description: string
+    breadcrumb: string
     button: string
   }
   [TOTEM_INDEX.DRY_MORE]: {
     title: string
     description: string
+    breadcrumb: string
     booleans: {
       title: string
       description: string
@@ -77,6 +82,10 @@ export interface LocaleContract {
   }
   [TOTEM_INDEX.PAYMENT]: {
     title: string
-    description: string 
+    description: string
+    breadcrumb: string
+  },
+  branch: {
+    title: string
   }
 }

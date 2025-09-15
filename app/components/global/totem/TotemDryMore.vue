@@ -29,9 +29,9 @@ function triggerNext() {
 </script>
 
 <template>
-  <TotemPath>
+  <TotemPath class="gap-12">
     <template #hero>
-      <div class="grid gap-1 p-4">
+      <div class="grid gap-1">
         <LTitle>
           {{ $t(`${CURRENT_INDEX}.title`) }}
         </LTitle>
@@ -41,7 +41,7 @@ function triggerNext() {
       </div>
     </template>
 
-    <div class="p-4 lg:py-12 grid gap-6">
+    <div class="grid gap-6">
       <UPageCard
         :title="$t(`${TOTEM_INDEX.DRY_MORE}.selects.title`)"
         :description="$t(`${TOTEM_INDEX.DRY_MORE}.selects.description`)" variant="naked" />
@@ -94,10 +94,13 @@ function triggerNext() {
           <USwitch v-model="model[TOTEM_STATE_KEYS.DRY_MACHINE_ADDITIONAL][key]" size="lg" />
         </UFormField>
       </UPageCard>
-
-      <UButton size="xl" block @click="triggerNext">
-        Próxima etapa
-      </UButton>
     </div>
+    <template #footer>
+      <div class="p-3">
+        <UButton size="xl" block @click="triggerNext">
+          Próxima etapa
+        </UButton>
+      </div>
+    </template>
   </TotemPath>
 </template>

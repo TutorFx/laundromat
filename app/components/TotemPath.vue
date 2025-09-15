@@ -3,11 +3,13 @@ const TOTEM_PATH_KEYS = {
   NAV: 'nav',
   HERO: 'hero',
   CONTENT: 'default',
+  FOOTER: 'footer',
 } as const;
 export interface CardSlots {
-  [TOTEM_PATH_KEYS.NAV]: (props?: object) => unknown
-  [TOTEM_PATH_KEYS.HERO]: (props?: object) => unknown
-  [TOTEM_PATH_KEYS.CONTENT]: (props?: object) => unknown
+  [TOTEM_PATH_KEYS.NAV]: (props?: object) => void
+  [TOTEM_PATH_KEYS.HERO]: (props?: object) => void
+  [TOTEM_PATH_KEYS.CONTENT]: (props?: object) => void
+  [TOTEM_PATH_KEYS.FOOTER]: (props?: object) => void
 }
 </script>
 <script setup lang="ts">
@@ -23,6 +25,9 @@ const gridTemplateAreas = computed(() => {
   if (TOTEM_PATH_KEYS.CONTENT in slots) {
     area.push('content')
   }
+  if (TOTEM_PATH_KEYS.FOOTER in slots) {
+    area.push(TOTEM_PATH_KEYS.FOOTER)
+  }
   return area.map(line => `"${line}"`).join(' ')
 })
 const gridTemplateRows = computed(() => {
@@ -35,6 +40,9 @@ const gridTemplateRows = computed(() => {
   }
   if (TOTEM_PATH_KEYS.CONTENT in slots) {
     row.push('1fr')
+  }
+  if (TOTEM_PATH_KEYS.FOOTER in slots) {
+    row.push('max-content')
   }
   return row.join(' ')
 })
@@ -49,6 +57,9 @@ const gridTemplateRows = computed(() => {
     </div>
     <div v-if="TOTEM_PATH_KEYS.CONTENT in slots" :style="{ gridArea: 'content' }">
       <slot :name="TOTEM_PATH_KEYS.CONTENT" />
+    </div>
+    <div v-if="TOTEM_PATH_KEYS.FOOTER in slots" :style="{ gridArea: TOTEM_PATH_KEYS.FOOTER }">
+      <slot :name="TOTEM_PATH_KEYS.FOOTER" />
     </div>
   </div>
 </template>
